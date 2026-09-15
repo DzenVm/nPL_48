@@ -1,0 +1,282 @@
+/*
+  Prosty, autorski zestaw tokenów i klas pomocniczych — bez frameworku
+  narzędziowego. Paleta inspirowana stołem kartografa: papier, atrament,
+  miedziane sygnatury na mapach sztabowych. Zamierzenie: żeby strona nie
+  wyglądała jak kolejny szablon SaaS w fiolecie i gradiencie.
+*/
+
+:root {
+  --papier-50: #faf7ef;
+  --papier-100: #f2ecdc;
+  --papier-200: #e6dcc2;
+  --papier-300: #d6c8a3;
+  --atrament-900: #1b2430;
+  --atrament-800: #232f3f;
+  --atrament-700: #2f3f52;
+  --atrament-500: #4c6178;
+  --atrament-300: #8fa2b3;
+  --miedz-600: #a8571f;
+  --miedz-500: #c56a2a;
+  --miedz-400: #db8a4c;
+  --zielen-600: #4a6b4d;
+  --zielen-500: #5f8563;
+  --czerwien-600: #9c3b34;
+
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: "Karla", "Segoe UI", system-ui, sans-serif;
+
+  --tekst-podstawowy: var(--atrament-900);
+  --tekst-przygaszony: var(--atrament-500);
+  --tlo-strony: var(--papier-50);
+  --tlo-karty: #ffffff;
+  --linia: var(--papier-300);
+  --akcent: var(--miedz-600);
+  --akcent-hover: var(--miedz-500);
+  --ogniskowanie: #1b6b6b;
+
+  --promien-s: 6px;
+  --promien-m: 12px;
+  --promien-l: 22px;
+  --cien-karta: 0 1px 2px rgba(27, 36, 48, 0.06), 0 8px 24px -12px rgba(27, 36, 48, 0.18);
+  --cien-uniesiona: 0 20px 45px -20px rgba(27, 36, 48, 0.35);
+
+  --szer-tresc: 42rem;
+  --szer-sekcja: 72rem;
+  --szer-strona: 90rem;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--tlo-strony);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(197, 106, 42, 0.05), transparent 40%),
+    radial-gradient(circle at 88% 78%, rgba(47, 63, 82, 0.06), transparent 45%);
+  color: var(--tekst-podstawowy);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ogniskowanie);
+  outline-offset: 3px;
+  border-radius: var(--promien-s);
+}
+
+::selection {
+  background: var(--miedz-400);
+  color: var(--papier-50);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--atrament-900);
+  color: var(--papier-50);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--promien-s);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--szer-strona);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.container--tresc {
+  max-width: var(--szer-tresc);
+}
+
+.container--sekcja {
+  max-width: var(--szer-sekcja);
+}
+
+section {
+  padding-block: clamp(3rem, 7vw, 6.5rem);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--akcent);
+}
+
+.kicker::before {
+  content: "";
+  width: 1.4rem;
+  height: 2px;
+  background: var(--akcent);
+  display: inline-block;
+}
+
+.naglowek-sekcji {
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+}
+
+.lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: var(--tekst-przygaszony);
+  max-width: 62ch;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--pierwszy {
+  background: var(--akcent);
+  color: var(--papier-50);
+  box-shadow: 0 12px 24px -12px rgba(168, 87, 31, 0.55);
+}
+
+.btn--pierwszy:hover {
+  background: var(--akcent-hover);
+}
+
+.btn--drugi {
+  background: transparent;
+  border-color: var(--atrament-900);
+  color: var(--atrament-900);
+}
+
+.btn--drugi:hover {
+  background: var(--atrament-900);
+  color: var(--papier-50);
+}
+
+.btn--na-ciemnym {
+  border-color: rgba(250, 247, 239, 0.5);
+  color: var(--papier-50);
+}
+
+.btn--na-ciemnym:hover {
+  background: rgba(250, 247, 239, 0.12);
+}
+
+.karta {
+  background: var(--tlo-karty);
+  border: 1px solid var(--linia);
+  border-radius: var(--promien-l);
+  box-shadow: var(--cien-karta);
+}
+
+.siatka {
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.siatka--2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.siatka--3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.siatka--4 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+hr.separator {
+  border: none;
+  border-top: 1px solid var(--linia);
+  margin-block: 0;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--papier-100);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

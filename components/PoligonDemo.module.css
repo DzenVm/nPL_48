@@ -1,0 +1,166 @@
+.opakowanie {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 900px) {
+  .opakowanie {
+    grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
+    align-items: start;
+  }
+}
+
+.plansza {
+  position: relative;
+  margin-inline: auto;
+  max-width: 100%;
+  touch-action: manipulation;
+}
+
+.pole {
+  position: absolute;
+  clip-path: polygon(100% 50%, 75% 100%, 25% 100%, 0% 50%, 25% 0%, 75% 0%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--papier-50);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.pole:hover:not(:disabled) {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.pole:disabled {
+  cursor: default;
+}
+
+.pole--las { background: var(--zielen-600); }
+.pole--rowniny { background: var(--miedz-400); }
+.pole--wzgorza { background: var(--atrament-500); }
+.pole--gory { background: var(--czerwien-600); }
+
+.pole--zajete {
+  outline: 3px solid var(--papier-50);
+  outline-offset: -6px;
+}
+
+.pole--mozliwe {
+  filter: brightness(1.12);
+}
+
+.pole--niedostepne {
+  opacity: 0.55;
+  filter: grayscale(0.3);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.zasobyLista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.zasob {
+  background: var(--papier-100);
+  border-radius: var(--promien-m);
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.zasobEtykieta {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tekst-przygaszony);
+}
+
+.zasobWartosc {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.stanGry {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--tekst-przygaszony);
+}
+
+.dziennik {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--tekst-przygaszony);
+  border-top: 1px solid var(--linia);
+  padding-top: 0.85rem;
+  max-height: 9rem;
+  overflow-y: auto;
+}
+
+.dziennik li:first-child {
+  color: var(--tekst-podstawowy);
+  font-weight: 600;
+}
+
+.komunikatKonca {
+  padding: 1rem 1.1rem;
+  border-radius: var(--promien-m);
+  font-weight: 600;
+}
+
+.komunikatKonca--wygrana {
+  background: rgba(95, 133, 99, 0.16);
+  color: var(--zielen-600);
+}
+
+.komunikatKonca--przegrana {
+  background: rgba(156, 59, 52, 0.14);
+  color: var(--czerwien-600);
+}
+
+.przyciski {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  font-size: 0.82rem;
+  color: var(--tekst-przygaszony);
+}
+
+.legendaKropka {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 2px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}

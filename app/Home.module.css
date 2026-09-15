@@ -1,0 +1,267 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--atrament-900);
+  color: var(--papier-50);
+  padding-block: clamp(4rem, 10vw, 7.5rem);
+}
+
+.heroTresc {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.heroKicker {
+  color: var(--miedz-400);
+}
+
+.heroKicker::before {
+  background: var(--miedz-400);
+}
+
+.heroTytul {
+  font-size: clamp(2.2rem, 5.4vw, 3.7rem);
+  margin-top: 1rem;
+  max-width: 18ch;
+}
+
+.heroLead {
+  margin-top: 1.3rem;
+  font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+  color: rgba(250, 247, 239, 0.82);
+  max-width: 52ch;
+}
+
+.heroAkcje {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.1rem;
+}
+
+.statystyki {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid rgba(250, 247, 239, 0.16);
+  max-width: 56rem;
+}
+
+.statLiczba {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  color: var(--miedz-400);
+}
+
+.statOpis {
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+  color: rgba(250, 247, 239, 0.7);
+}
+
+.mechanikaRzad {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (min-width: 920px) {
+  .mechanikaRzad {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .mechanikaRzad.odwrocony .mechanikaObraz {
+    order: 2;
+  }
+}
+
+.mechanikaRzad:not(:last-child) {
+  border-bottom: 1px solid var(--linia);
+}
+
+.mechanikaNumer {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--papier-300);
+  line-height: 1;
+}
+
+.mechanikaTytul {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  margin-top: 0.4rem;
+}
+
+.mechanikaWstep {
+  margin-top: 0.9rem;
+  font-style: italic;
+  color: var(--tekst-przygaszony);
+}
+
+.mechanikaAkapit {
+  margin-top: 1rem;
+  color: var(--tekst-podstawowy);
+  max-width: 58ch;
+}
+
+.mechanikaPunkty {
+  margin-top: 1.3rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--papier-100);
+  border-radius: var(--promien-m);
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+}
+
+.mechanikaPunkty li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.mechanikaPunkty li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--akcent);
+}
+
+.mechanikaObraz {
+  border-radius: var(--promien-l);
+  overflow: hidden;
+  box-shadow: var(--cien-karta);
+}
+
+.scenariuszKarta {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.trudnosc {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.trudnosc--spokojna { background: rgba(95, 133, 99, 0.16); color: var(--zielen-600); }
+.trudnosc--wymagajaca { background: rgba(197, 106, 42, 0.16); color: var(--miedz-600); }
+.trudnosc--surowa { background: rgba(156, 59, 52, 0.14); color: var(--czerwien-600); }
+
+.warunek {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--linia);
+  font-size: 0.85rem;
+  color: var(--tekst-przygaszony);
+}
+
+.oS {
+  background: var(--papier-100);
+}
+
+.dziennikLista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dziennikWpis {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--linia);
+}
+
+@media (max-width: 640px) {
+  .dziennikWpis {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.dziennikData {
+  color: var(--tekst-przygaszony);
+  font-size: 0.85rem;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status--zakonczone { background: rgba(95, 133, 99, 0.16); color: var(--zielen-600); }
+.status--w-trakcie { background: rgba(197, 106, 42, 0.16); color: var(--miedz-600); }
+.status--zaplanowane { background: rgba(76, 97, 120, 0.16); color: var(--atrament-500); }
+
+.faqSzczegoly {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--linia);
+}
+
+.faqSzczegoly summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faqSzczegoly summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqSzczegoly summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--akcent);
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.faqSzczegoly[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faqOdpowiedz {
+  margin-top: 0.75rem;
+  color: var(--tekst-przygaszony);
+  max-width: 62ch;
+}
+
+.finalCta {
+  background: linear-gradient(135deg, var(--miedz-600), var(--miedz-500));
+  color: var(--papier-50);
+  text-align: center;
+}
+
+.finalCta .lead {
+  color: rgba(250, 247, 239, 0.88);
+  margin-inline: auto;
+}
