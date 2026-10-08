@@ -31,15 +31,14 @@ Zod-схеми (`lib/content/schema.ts`), щоб помилка в даних п
 - `app/icon.svg` — унікальна фавіконка (абстрактний геометричний знак, не
   логотип).
 
-## Домен (плейсхолдер)
+## Домен
 
-Реальний домен ще не наданий. До заміни сайт використовує заглушку в
-`lib/site-config.ts` (`https://domena-do-podmiany.pl`). Коли домен буде
-відомий, просто задайте змінну середовища у Vercel:
+Сайт використовує домен `qemlorvixa.live`, заданий у `lib/site-config.ts`.
+За потреби адресу та контактну пошту можна перевизначити у Vercel:
 
 ```
-NEXT_PUBLIC_SITE_URL=https://ваш-домен.pl
-NEXT_PUBLIC_CONTACT_EMAIL=kontakt@ваш-домен.pl
+NEXT_PUBLIC_SITE_URL=https://qemlorvixa.live
+NEXT_PUBLIC_CONTACT_EMAIL=kontakt@qemlorvixa.live
 ```
 
 Це автоматично підхопиться в metadata, sitemap.xml, robots.txt, JSON-LD і
@@ -66,8 +65,8 @@ npm run build
 
 1. Імпортувати репозиторій у Vercel (framework визначиться автоматично як
    Next.js завдяки `vercel.json`).
-2. Додати змінні середовища `NEXT_PUBLIC_SITE_URL` і
-   `NEXT_PUBLIC_CONTACT_EMAIL`, коли буде відомий домен.
+2. За потреби задати змінні середовища `NEXT_PUBLIC_SITE_URL` і
+   `NEXT_PUBLIC_CONTACT_EMAIL` для домену `qemlorvixa.live`.
 3. Деплой без додаткових налаштувань — команди збірки вже прописані у
    `vercel.json` (`next build` / `next start` не потрібен, Vercel сам
    обслуговує SSR-функції).
